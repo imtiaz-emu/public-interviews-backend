@@ -30,3 +30,7 @@
 .env
 
 example.txt
+.idea/
+.vscode/
+.DS_Store
+

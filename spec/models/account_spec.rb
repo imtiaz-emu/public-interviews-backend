@@ -4,14 +4,16 @@
 #
 # Table name: accounts
 #
-#  id           :bigint           not null, primary key
-#  email        :string
-#  first_name   :string
-#  last_name    :string
-#  phone_number :string
-#  status       :integer          default(0), not null
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id              :bigint           not null, primary key
+#  amount          :decimal(15, 2)   default(0.0)
+#  email           :string
+#  first_name      :string
+#  last_name       :string
+#  password_digest :string
+#  phone_number    :string
+#  status          :integer          default("pending"), not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
 #
 # Indexes
 #
@@ -33,5 +35,8 @@ RSpec.describe Account, type: :model do
     it { is_expected.to validate_presence_of(:last_name) }
     it { is_expected.to validate_presence_of(:phone_number) }
     it { is_expected.to validate_presence_of(:email) }
+    it { should_not validate_length_of(:password).is_at_least(5) }
+    it { should validate_uniqueness_of(:email) }
+    it { should validate_uniqueness_of(:phone_number).case_insensitive }
   end
 end
