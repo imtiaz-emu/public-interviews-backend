@@ -33,4 +33,6 @@ example.txt
 .idea/
 .vscode/
 .DS_Store
+doc/api/*
+!doc/api/.keep
 

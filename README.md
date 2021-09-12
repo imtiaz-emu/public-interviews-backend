@@ -13,5 +13,5 @@
 - `bundle install`
 - Run `rails db:create db:migrate`
 - Run `bundle exec rspec` to validate the installation
-- Run `rails server`
-- You're good to go :tada:
+- Run `bundle exec rake docs:generate` to generate the API docs
+- Find the docs in `doc/api`
