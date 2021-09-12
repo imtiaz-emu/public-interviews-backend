@@ -30,4 +30,17 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  accounts:
+    login:
+      errors:
+        not_found: 'Account not found'
+        authentication: 'Email/Password Incorrect'
+        unauthorized: 'Please login to continue'
+    register:
+      errors:
+        token_expired: 'Expired token! login again'
+  transactions:
+    errors:
+      receiver_not_found: 'Receiver not found'
+      account_unverified: '%{subject} account not verified'
+      unauthorized: 'Unauthorized'

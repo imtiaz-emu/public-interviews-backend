@@ -13,7 +13,7 @@ module Api
 
           render json: AccountPresenter.new(account).as_json, status: :created
         else
-          render json: { error: 'Account not found' }, status: :unauthorized
+          render json: { error: I18n.t('accounts.login.errors.not_found') }, status: :unauthorized
         end
       end
 
@@ -28,7 +28,7 @@ module Api
       end
 
       def handle_unauthenticated
-        render json: { error: 'Email/Password Incorrect' }, status: :unauthorized
+        render json: { error: I18n.t('accounts.login.errors.authentication') }, status: :unauthorized
       end
     end
   end

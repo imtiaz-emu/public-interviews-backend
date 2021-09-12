@@ -11,7 +11,7 @@
 #  last_name       :string
 #  password_digest :string
 #  phone_number    :string
-#  status          :integer          default("pending"), not null
+#  status          :integer          default(0), not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
@@ -38,5 +38,17 @@ RSpec.describe Account, type: :model do
     it { should_not validate_length_of(:password).is_at_least(5) }
     it { should validate_uniqueness_of(:email) }
     it { should validate_uniqueness_of(:phone_number).case_insensitive }
+  end
+
+  describe '.find_by_email_phone' do
+    it 'find accounts with email' do
+      account = FactoryBot.create(:account)
+      expect(Account.find_by_email(account.email)).to include(account)
+    end
+
+    it 'find accounts with email and phone' do
+      account = FactoryBot.create(:account)
+      expect(Account.find_by_email_phone(account.email, account.phone_number)).to include(account)
+    end
   end
 end
