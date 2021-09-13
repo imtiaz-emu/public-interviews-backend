@@ -24,6 +24,7 @@ group :development, :test do
   gem 'rubocop-performance', '>= 1.11.3', require: false
   gem 'rubocop-rails', '>= 2.10.1', require: false
   gem 'rubocop-rspec', '>= 2.4.0', require: false
+  gem 'rspec_api_documentation'
 end
 
 group :development do
@@ -39,3 +40,5 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'bcrypt', '~> 3.1', '>= 3.1.16'
+gem 'jwt', '~> 2.2', '>= 2.2.3'
